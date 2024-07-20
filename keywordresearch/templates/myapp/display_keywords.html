@@ -1,0 +1,13 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}Keyword List{% endblock %}
+
+{% block content %}
+    <h1>Related Keywords for "{{ keyword }}"</h1>
+    <ul>
+        {% for keyword in related_keywords %}
+        <li>{{ keyword.0 }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'saved_keywords' %}">Back to Saved Keywords</a>
+{% endblock %}

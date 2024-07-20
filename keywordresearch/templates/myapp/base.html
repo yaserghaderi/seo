@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Django Project{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'myapp/css/styles.css' %}">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+    font-family: 'iransans';
+    src: url('{% static "myapp/fonts/IRANSansWeb_Medium.woff2" %}') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: iransans;
+    margin: 0;
+    padding: 0;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        
+        <nav>
+            <ul>
+                <li><a href="{% url 'search' %}"> سرچ کلمه کلیدی</a></li>
+                <li><a href="{% url 'keyword_list' %}">  کلمات کلیدی </a></li>
+                <li><a href="{% url 'links' %}"> سایت های رقیب</a></li>
+                <li><a href="{% url 'keyword_rank' %}">رتبه کلمات</a></li>
+                <li><a href="{% url 'competitor' %}"> لیست رقبا</a></li>
+                <li><a href="{% url 'admin:index' %}">ادمین</a></li>
+            </ul>
+        </nav>
+        <div class="logo">
+            <img src="{% static 'images/logo.png' %}" alt="Logo">
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,49 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}Keyword List{% endblock %}
+
+{% block content %}
+<h1>Saved Related Keywords</h1>
+
+<form method="post" action="{% url 'bulk_action' %}">
+    {% csrf_token %}
+    <div class="action-bar">
+        <select name="action" class="action-select">
+            <option value="delete">حذف انتخاب شده ها</option>
+            <option value="transfer">افزودن به لیست رتبه کلمات </option>
+        </select>
+        <button type="submit" class="action-button">اجرا</button>
+    </div>
+
+    <table>
+        <thead>
+        <tr>
+            <th><input type="checkbox" id="select-all"></th>
+            <th>#</th>
+            <th>Main Keyword</th>
+            <th>Related Keyword</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for keyword in links %}
+            <tr>
+                <td class="td1"><input type="checkbox" class="select-item" name="selected_keywords" value="{{ keyword.id }}"></td>
+                <td class="td1">{{ forloop.counter }}</td>
+                <td>{{ keyword.keyword }}</td>
+              
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</form>
+
+
+<script>
+    document.getElementById('select-all').onclick = function() {
+        var checkboxes = document.querySelectorAll('.select-item');
+        for (var checkbox of checkboxes) {
+            checkbox.checked = this.checked;
+        }
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}link List{% endblock %}
+
+{% block content %}
+<h1>لینک سایت های رقیب</h1>
+ <form method="post" action="{% url 'bulk_action' %}">
+        {% csrf_token %}
+        <div class="action-bar">
+            <select name="action" class="action-select">
+                <option value="delete-links">حذف انتخاب شده ها</option>
+                 <option value="add-competitor">افزودن به لیست رقبا اصلی  </option>
+            </select>
+            <button type="submit" class="action-button">اجرا</button>
+        </div>
+<table>
+    <thead>
+    <tr>
+        <th><input type="checkbox" id="select-all"></th>
+        <th>#</th>
+        <th>رقبا</th>
+        <th>میزان تکرار</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for link in links %}
+        <tr>
+            <td style="width: 30px"><input type="checkbox" class="select-item" name="selected_keywords" value="{{ link.ids }}">
+            <td style="width: 30px">{{ forloop.counter }}</td>
+          
+            <td><a href="http://{{link.link}}" target=”_blank”>{{ link.link }}</a></td>
+        <td>{{ link.count }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+  </form>
+       <script>
+        document.getElementById('select-all').onclick = function () {
+            var checkboxes = document.querySelectorAll('.select-item');
+            for (var checkbox of checkboxes) {
+                checkbox.checked = this.checked;
+            }
+        }
+    </script>
+{% endblock %}

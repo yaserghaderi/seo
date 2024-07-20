@@ -1,0 +1,40 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}link List{% endblock %}
+
+{% block content %}
+<h1>Results</h1>
+
+<form method="post" action="{% url 'save_selected_keywords' %}">
+    {% csrf_token %}
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Select</th>
+            <th>Field 1</th>
+            <th>Field 2</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for keyword in keywords %}
+            <tr>
+                <td><input type="checkbox" name="selected_keywords" value="{{ keyword }}"></td>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ keyword }}</td>
+                 <td>{{ keyword.related_keyword }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <button type="submit">Save Selected</button>
+</form>
+{% endblock %}
+
+related_keyword
+{% for keyword in s %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ keyword }}</td>
+    </tr>
+{% endfor %}

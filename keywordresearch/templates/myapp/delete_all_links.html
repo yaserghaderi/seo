@@ -1,0 +1,16 @@
+<!-- در فایل templates/delete_all_links.html -->
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>حذف همه لینک‌ها</title>
+</head>
+<body>
+    <h1>حذف همه لینک‌ها</h1>
+    <form method="post" action="{% url 'delete_all_links' %}">
+        {% csrf_token %}
+        <p>آیا از حذف همه لینک‌ها مطمئنید؟</p>
+        <button type="submit">حذف همه</button>
+    </form>
+</body>
+</html>

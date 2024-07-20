@@ -1,0 +1,233 @@
+@font-face {
+    font-family: 'iransans';
+    src: url('{% static "myapp/fonts/IRANSansWeb_Medium.woff2" %}') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: iransans;
+    margin: 0;
+    padding: 0;
+}
+*{  font-family: iransans;}
+
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    font-weight: 300;
+    color: orangered;
+}
+.logo img {
+    height: 40px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white !important;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+
+h1{
+    color: orange;
+    text-align:center;
+}
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 1em;
+            min-width: 400px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+
+        table thead tr {
+            background-color: #009879;
+            color: #ffffff;
+
+            font-weight: bold;
+        }
+
+        table th, table td {
+            padding: 12px 15px;
+        }
+
+        table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        table tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+
+        table tbody tr.active-row {
+            font-weight: bold;
+            color: #009879;
+        }
+        .search-container{
+            width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+        }
+        .search-container form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .search-container form input{
+            width: 350px;
+            border-radius: 15px;
+            padding: 5px;
+            margin: 15px;
+            direction: rtl;
+            font-family: iransans;
+            border:none;
+            background: #ececec;
+        }
+        .search-container form button{
+            width: 250px;
+            border-radius: 15px;
+            padding: 5px;
+            background: orange;
+            color: white;
+            cursor: pointer;
+            border:none;
+        }
+        .action-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.action-select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.action-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.action-button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+thead {
+    background-color: #f8f9fa;
+}
+
+th, td {
+    padding: 10px;
+
+    border: 1px solid #dee2e6;
+}
+*{
+    direction: rtl;
+    text-align: right;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#select-all {
+    cursor: pointer;
+}
+.keyword-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 500px;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 10px;
+    background: #e4e4e4;
+    direction: rtl;
+}
+
+.td1{width: 10px}
+/* گروه فرم */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* برچسب فرم */
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* ورودی فرم */
+.form-control {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* دکمه ارسال */
+.btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+

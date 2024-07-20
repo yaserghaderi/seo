@@ -1,0 +1,65 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}Keyword List{% endblock %}
+
+{% block content %}
+    <h1>رتبه کلمات</h1>
+      <form  method="post"action="{% url 'add_keyword' %}"  class="keyword-form" >
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="keyword">کلمه جدید:</label>
+            <input type="text" name="keyword" id="keyword"  class="form-control" required>
+        </div>
+        <button type="submit" class="btn">افزودن به لیست</button>
+    </form>
+
+    <form method="post" action="{% url 'bulk_action' %}">
+        {% csrf_token %}
+        <div class="action-bar">
+            <select name="action" class="action-select">
+                <option value="delete-rank">حذف انتخاب شده ها</option>
+
+            </select>
+            <button type="submit" class="action-button">اجرا</button>
+        </div>
+
+        <table>
+            <thead>
+            <tr>
+                <th><input type="checkbox" id="select-all"></th>
+                <th>#</th>
+                <th>کلمه کلیدی</th>
+                <th> رتبه سایت شما</th>
+                <th> رغیب</th>
+                <th> رنک رغیب</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for keyword in keyword %}
+                <tr>
+                    <td class="td1"><input type="checkbox" class="select-item" name="selected_keywords" value="{{ keyword.id }}">
+                    </td>
+                    <td class="td1">{{ forloop.counter }}</td>
+                    <td>{{ keyword.keyword }}</td>
+                    <td>{{ keyword.myrank }}</td>
+                    <td>{{ keyword.comparator1 }}</td>
+                    <td>{{ keyword.rank_comparator1 }}</td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </form>
+
+   
+
+    <script>
+        document.getElementById('select-all').onclick = function () {
+            var checkboxes = document.querySelectorAll('.select-item');
+            for (var checkbox of checkboxes) {
+                checkbox.checked = this.checked;
+            }
+        }
+    </script>
+{% endblock %}

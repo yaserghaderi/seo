@@ -1,0 +1,7 @@
+requests~=2.32.3
+beautifulsoup
+pandas~=2.2.2
+halo
+termcolor
+beautifulsoup4~=4.12.3
+persiantools~=4.1.0
